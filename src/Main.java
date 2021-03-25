@@ -1,6 +1,9 @@
 import myPackage.*;
 import java.awt.*;
 import javax.swing.*;
+
+import UML_Buttons.SelectButton;
+
 import java.util.*;
 import java.awt.event.*;
 import java.nio.file.Path;
@@ -10,7 +13,7 @@ public class Main {
 	
 	private static java.util.List<JButton> setAndGetButtonList(int num) {
 		java.util.List<JButton> buttons = new ArrayList<>();
-		buttons.add(new SelectButton(Paths.get("src/imgs/select.png")));
+		buttons.add(new SelectButton("src/imgs/select.png"));
 		buttons.add(new JButton("association line"));
 		buttons.add(new JButton("generalization line"));
 		buttons.add(new JButton("composition line"));
