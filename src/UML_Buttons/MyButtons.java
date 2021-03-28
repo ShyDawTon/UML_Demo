@@ -1,5 +1,6 @@
 package UML_Buttons;
 
+import UML_Event.EventManager;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -17,11 +18,15 @@ import javax.swing.*;
 public abstract class MyButtons extends JButton implements ActionListener{
 	public MyButtons(String iconPath) {
 		setIconImg(iconPath);
+		this.addActionListener(this);
 		this.setBackground(Color.white);
 		this.setBorder(BorderFactory.createEmptyBorder());
 	}
 	
-	public abstract void actionPerformed(ActionEvent e);
+	public void actionPerformed(ActionEvent e) {
+		EventManager.setCurrentButtons(this);
+		onClicked();
+	}
 	
 	/**
 	 * set Icon image
@@ -40,6 +45,8 @@ public abstract class MyButtons extends JButton implements ActionListener{
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public abstract void onClicked();
 }
 
 

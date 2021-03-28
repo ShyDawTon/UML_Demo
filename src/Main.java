@@ -1,8 +1,9 @@
-import myPackage.*;
 import java.awt.*;
 import javax.swing.*;
 
-import UML_Buttons.SelectButton;
+import UML_Actions.*;
+import UML_Buttons.*;
+import UML_Layout.*;
 
 import java.util.*;
 import java.awt.event.*;
@@ -14,18 +15,11 @@ public class Main {
 	private static java.util.List<JButton> setAndGetButtonList(int num) {
 		java.util.List<JButton> buttons = new ArrayList<>();
 		buttons.add(new SelectButton("src/imgs/select.png"));
-		buttons.add(new JButton("association line"));
-		buttons.add(new JButton("generalization line"));
-		buttons.add(new JButton("composition line"));
-		buttons.add(new JButton("class"));
-		buttons.add(new JButton("use case"));
-		JButton button = new JButton();
-		button.addActionListener(new ActionListener() {
-			@Override
-            public void actionPerformed(ActionEvent e) {
-                return;
-            }
-		});
+		buttons.add(new AssociationLineButton("src/imgs/associationLine.png"));
+		buttons.add(new GeneralizationLineButton("src/imgs/generalizationLine.png"));
+		buttons.add(new CompositionLineButton("src/imgs/compositionLine.png"));
+		buttons.add(new ClassButton("src/imgs/class.png"));
+		buttons.add(new UseCaseButton("src/imgs/use case.png"));
 		return buttons;
 	}
 	
@@ -40,20 +34,15 @@ public class Main {
         // set BorderLayout for the frame  
         frame.getContentPane().setLayout(new BorderLayout());  
         
-        // create buttonPanel & buttonPanel's component
+        // create buttonPanel & buttonPanel's component & add button listener
         Panel buttonPanel = new Panel();
         buttonPanel.setLayout(new GridLayout(6,1));
         java.util.List<JButton> buttons = setAndGetButtonList(6);
-        for(int i=0; i<buttons.size(); i++) {
+        for(int i=0; i<buttons.size(); i++)
         	buttonPanel.add(buttons.get(i));
-        }
-        
-        // create paint area
-        Panel paintPanel = new Panel();
-        paintPanel.setBackground(Color.white);
         
         // set split panel
-        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, buttonPanel, paintPanel);  
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, buttonPanel, new DrawPanel());  
         splitPane.setResizeWeight(0.01f);
         
         // add split panel

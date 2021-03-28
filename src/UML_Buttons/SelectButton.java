@@ -19,7 +19,7 @@ public class SelectButton extends MyButtons{
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void onClicked() {
 		return;
 	}
 }
