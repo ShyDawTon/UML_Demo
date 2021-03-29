@@ -8,6 +8,11 @@ import UML_Buttons.*;
 import javax.swing.JPanel;
 
 public class ButtonsPanel extends JPanel{
+	public enum ButtonsEvent{
+		SELECT, ASSOCIATION_LINE, GENERALIZATION_LINE, 
+		COMPOSITION_LINE, CLASS, USECASE
+	}
+	
 	private List<MyButtons> buttons;
 	
 	public ButtonsPanel() {

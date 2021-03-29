@@ -1,11 +1,12 @@
 package UML_Shape;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 public class ClassShape extends Shape{
-	public ClassShape(int x, int y, int width, int height, int inset) {
-		super(x, y, width, height, inset);
+	public ClassShape(int x, int y, int width, int height, int inset, String name) {
+		super(x, y, width, height, inset, name);
 	}
 	
 	public void draw(Graphics g) {
@@ -27,5 +28,16 @@ public class ClassShape extends Shape{
 	    // inside border
 	    g.fillRect(x, y+(height/5), width, inset);
 	    g.fillRect(x, y+(height*3/5), width, inset);
+	    
+	    // draw string
+	    g.setFont(new Font("Arial", Font.BOLD, 15));
+	    g.drawString(name, x+width/4, y+height/7);
+	}
+	
+	@Override
+	public void setName(String name) {
+		if(name == null || name.isEmpty())
+			name = "Class";
+		this.name = name;
 	}
 }

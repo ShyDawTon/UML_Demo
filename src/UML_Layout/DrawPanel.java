@@ -7,7 +7,7 @@ import UML_Shape.*;
 import java.util.*;
 
 import javax.swing.JPanel;
-import UML_Actions.ShapePanelClickListener;
+import UML_Actions.*;
 
 public class DrawPanel extends JPanel{
 	private List<Shape> shapes = new LinkedList<Shape>();
@@ -15,7 +15,6 @@ public class DrawPanel extends JPanel{
 	public DrawPanel() {
 		super();
 		this.setBackground(Color.gray);
-		this.addMouseListener(new ShapePanelClickListener(this));
 	}
 	
 	public void addShape(Shape shape) {
