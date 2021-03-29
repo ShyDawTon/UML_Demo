@@ -1,4 +1,4 @@
-package UML_Event;
+package UML_Manager;
 
 import java.awt.Color;
 

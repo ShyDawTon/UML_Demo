@@ -13,6 +13,7 @@ public class DrawPanel extends JPanel{
 	private List<Shape> shapes = new LinkedList<Shape>();
 	
 	public DrawPanel() {
+		super();
 		this.setBackground(Color.gray);
 		this.addMouseListener(new ShapePanelClickListener(this));
 	}

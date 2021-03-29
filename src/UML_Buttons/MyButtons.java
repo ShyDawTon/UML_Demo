@@ -1,6 +1,5 @@
 package UML_Buttons;
 
-import UML_Event.EventManager;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -14,6 +13,8 @@ import java.nio.file.Paths;
 import javax.imageio.ImageIO;
 
 import javax.swing.*;
+
+import UML_Manager.EventManager;
 
 public abstract class MyButtons extends JButton implements ActionListener{
 	public MyButtons(String iconPath) {
