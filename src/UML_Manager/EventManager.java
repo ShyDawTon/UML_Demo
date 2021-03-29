@@ -21,8 +21,15 @@ public class EventManager {
 	
 	public static void setDrawPanelListener(ButtonsPanel.ButtonsEvent event) {
 		DrawPanel drawPanel = FrameManager.getDrawPanel();
+		
+		// clear panel listener
+		for(MouseListener ml: drawPanel.getMouseListeners())
+			drawPanel.removeMouseListener(ml);
+		
+		// find listener to use
 		switch(event) {
-			case CLASS: drawPanel.addMouseListener(new createClassClickListener(drawPanel));
+			case CLASS: drawPanel.addMouseListener(new createClassClickListener(drawPanel)); break;
+			case USECASE: drawPanel.addMouseListener(new createUsecaseClickListener(drawPanel)); break;
 		}
 	}
 }

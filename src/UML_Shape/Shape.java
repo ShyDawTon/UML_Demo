@@ -68,6 +68,8 @@ public abstract class Shape extends Component{
 	}
 
 	public void setName(String name) {
+		if(name == null || name.isEmpty())
+			name = "Shape";
 		this.name = name;
 	}
 
