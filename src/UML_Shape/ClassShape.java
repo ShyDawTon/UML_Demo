@@ -14,24 +14,24 @@ public class ClassShape extends Shape{
 		g.setColor(Color.white);
 		
 		// draw background
-		g.fillRect(x+inset, y+inset, width-inset*2, height-inset*2);
+		g.fillRect(getX()+inset, getY()+inset, getWidth()-inset*2, getHeight()-inset*2);
 		
 		// set border color
 		g.setColor(Color.black);
 		
 		// out border
-	    g.fillRect(x, y, width, inset); // top
-	    g.fillRect(x, y, inset, height); // left
-	    g.fillRect(x+width-inset, y, inset, height); // right
-	    g.fillRect(x, y+height-inset, width, inset); // bottom
+	    g.fillRect(getX(), getY(), getWidth(), inset); // top
+	    g.fillRect(getX(), getY(), inset, getHeight()); // left
+	    g.fillRect(getX()+getWidth()-inset, getY(), inset, getHeight()); // right
+	    g.fillRect(getX(), getY()+getHeight()-inset, getWidth(), inset); // bottom
 	    
 	    // inside border
-	    g.fillRect(x, y+(height/5), width, inset);
-	    g.fillRect(x, y+(height*3/5), width, inset);
+	    g.fillRect(getX(), getY()+(getHeight()/5), getWidth(), inset);
+	    g.fillRect(getX(), getY()+(getHeight()*3/5), getWidth(), inset);
 	    
 	    // draw string
 	    g.setFont(new Font("Arial", Font.BOLD, 15));
-	    g.drawString(name, x+width/4, y+height/7);
+	    g.drawString(name, getX()+getWidth()/4, getY()+getHeight()/7);
 	}
 	
 	@Override

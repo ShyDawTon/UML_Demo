@@ -15,16 +15,16 @@ public class UseCaseShape extends Shape {
 	public void draw(Graphics g) {
 		// draw border
 		g.setColor(Color.black);
-		g.fillOval(x, y, width, height);
+		g.fillOval(getX(), getY(), getWidth(), getHeight());
 		
 		// draw inside
 		g.setColor(Color.white);
-		g.fillOval(x+inset, y+inset, width-inset*2, height-inset*2);
+		g.fillOval(getX()+inset, getY()+inset, getWidth()-inset*2, getHeight()-inset*2);
 		
 		// draw string
 		g.setColor(Color.black);
 		g.setFont(new Font("Arial", Font.BOLD, 15));
-		g.drawString(name, x+width/4, y+height/2);
+		g.drawString(name, getX()+getWidth()/4, getY()+getHeight()/2);
 	}
 	
 	@Override
