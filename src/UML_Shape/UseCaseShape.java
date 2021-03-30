@@ -8,7 +8,6 @@ public class UseCaseShape extends Shape {
 
 	public UseCaseShape(int x, int y, int width, int height, int inset, String name) {
 		super(x, y, width, height, inset, name);
-		
 	}
 
 	@Override

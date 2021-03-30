@@ -1,9 +1,12 @@
 package UML_Layout;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JSplitPane;
+import javax.swing.JTextArea;
 
 public class MainFrame extends JFrame{
 	private int width = 1200;

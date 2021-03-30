@@ -13,6 +13,9 @@ import javax.imageio.ImageIO;
 
 import javax.swing.*;
 
+import UML_Layout.ButtonsPanel;
+import UML_Manager.EventManager;
+
 public class SelectButton extends MyButtons{
 	public SelectButton(String iconPath) {
 		super(iconPath);
@@ -20,6 +23,7 @@ public class SelectButton extends MyButtons{
 	
 	@Override
 	public void onClicked() {
+		EventManager.setDrawPanelListener(ButtonsPanel.ButtonsEvent.SELECT);
 		return;
 	}
 }

@@ -28,6 +28,7 @@ public class EventManager {
 		
 		// find listener to use
 		switch(event) {
+			case SELECT: break;//drawPanel.addMouseListener(new DragAndDropListener(drawPanel)); break;
 			case CLASS: drawPanel.addMouseListener(new createClassClickListener(drawPanel)); break;
 			case USECASE: drawPanel.addMouseListener(new createUsecaseClickListener(drawPanel)); break;
 		}
