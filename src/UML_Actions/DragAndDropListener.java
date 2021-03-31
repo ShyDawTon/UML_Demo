@@ -17,6 +17,7 @@ public class DragAndDropListener extends MouseAdapter {
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
+		System.out.println(e.getSource());
 		return;
 	}
 }

@@ -28,7 +28,6 @@ public class DrawPanel extends JPanel{
 	
 	public void addShape(Shape shape) {
 		shapes.add(shape);
-		this.add(shape);
 		this.repaint();
 	}
 	
@@ -37,5 +36,9 @@ public class DrawPanel extends JPanel{
 		super.paint(g);
 		for(Shape s : shapes)
 			s.draw(g);
+	}
+	
+	public List<Shape> getShapes(){
+		return shapes;
 	}
 }

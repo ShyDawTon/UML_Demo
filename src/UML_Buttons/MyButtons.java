@@ -7,6 +7,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import UML_Actions.ButtonClickListener;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,17 +17,12 @@ import javax.swing.*;
 
 import UML_Manager.EventManager;
 
-public abstract class MyButtons extends JButton implements ActionListener{
+public abstract class MyButtons extends JButton{	
 	public MyButtons(String iconPath) {
 		setIconImg(iconPath);
-		this.addActionListener(this);
 		this.setBackground(Color.white);
 		this.setBorder(BorderFactory.createEmptyBorder());
-	}
-	
-	public void actionPerformed(ActionEvent e) {
-		EventManager.setCurrentButtons(this);
-		onClicked();
+		this.addMouseListener(new ButtonClickListener());
 	}
 	
 	/**
