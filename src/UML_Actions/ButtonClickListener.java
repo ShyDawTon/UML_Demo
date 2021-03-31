@@ -11,11 +11,12 @@ public class ButtonClickListener extends MouseAdapter{
 	public ButtonClickListener() {}
 	
 	public void mousePressed(MouseEvent e) {
+		MyButtons prevButton = FrameManager.getButtonsPanel().getCurrentButton();
 		MyButtons currentButton = (MyButtons)e.getSource();
-		if(FrameManager.prevButton != null && currentButton != FrameManager.prevButton)
-			FrameManager.prevButton.setBackground(Color.white);
+		if(prevButton != null && currentButton != prevButton)
+			prevButton.setBackground(Color.white);
 		currentButton.setBackground(Color.black);
 		currentButton.onClicked();
-		FrameManager.prevButton = currentButton;
+		FrameManager.getButtonsPanel().setCurrentButton(currentButton);
 	}
 }

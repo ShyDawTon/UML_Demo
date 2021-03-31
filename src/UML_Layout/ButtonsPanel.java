@@ -13,6 +13,8 @@ public class ButtonsPanel extends JPanel{
 		COMPOSITION_LINE, CLASS, USECASE
 	}
 	
+	private MyButtons currentButton = null;
+	
 	private List<MyButtons> buttons;
 	
 	public ButtonsPanel() {
@@ -34,5 +36,13 @@ public class ButtonsPanel extends JPanel{
 		buttons.add(new CompositionLineButton("src/imgs/compositionLine.png"));
 		buttons.add(new ClassButton("src/imgs/class.png"));
 		buttons.add(new UseCaseButton("src/imgs/use case.png"));
+	}
+	
+	public void setCurrentButton(MyButtons button) {
+		currentButton = button;
+	}
+	
+	public MyButtons getCurrentButton() {
+		return currentButton;
 	}
 }

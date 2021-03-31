@@ -17,10 +17,11 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import UML_Actions.*;
+import UML_Buttons.MyButtons;
 
 public class DrawPanel extends JPanel{
 	private List<Shape> shapes = new LinkedList<Shape>();
-	
+
 	public DrawPanel() {
 		super();
 		this.setLayout(null);

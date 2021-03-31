@@ -4,17 +4,39 @@ import UML_Buttons.MyButtons;
 import UML_Layout.*;
 
 public class FrameManager {
-	public static MyButtons prevButton = null;
-	
 	private static MainFrame _mainFrame = null;
 	
+	private static ButtonsPanel _buttonsPanel = null;
+	
+	private static DrawPanel _drawPanel = null;
+	
+	/**
+	 * get MainFrame object
+	 * @return
+	 */
 	public static MainFrame getMainFrame() {
 		if(_mainFrame == null)
 			_mainFrame = new MainFrame();
 		return _mainFrame;
 	}
 	
+	/**
+	 * get DrawPanel object
+	 * @return
+	 */
 	public static DrawPanel getDrawPanel() {
-		return getMainFrame().getDrawPanel();
+		if(_drawPanel == null)
+			_drawPanel = getMainFrame().getDrawPanel();
+		return _drawPanel;
+	}
+	
+	/**
+	 * get ButtonPanel object
+	 * @return
+	 */
+	public static ButtonsPanel getButtonsPanel() {
+		if(_buttonsPanel == null)
+			_buttonsPanel = getMainFrame().getButtonsPanel();
+		return _buttonsPanel;
 	}
 }
