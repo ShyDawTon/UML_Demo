@@ -22,8 +22,8 @@ public class EventManager {
 		// find listener to use
 		switch(event) {
 			case SELECT: 
-				for(Shape s : drawPanel.getShapes())
-					drawPanel.add(s);
+				for(int i=0; i<drawPanel.getShapes().size(); i++)
+					drawPanel.add(drawPanel.getShapes().get(i), Integer.valueOf(i));
 				drawPanel.addMouseListener(new DragAndDropListener(drawPanel)); 
 				break;
 			case CLASS: 

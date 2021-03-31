@@ -15,11 +15,12 @@ import java.util.*;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import UML_Actions.*;
 import UML_Buttons.MyButtons;
 
-public class DrawPanel extends JPanel{
+public class DrawPanel extends JLayeredPane{
 	private List<Shape> shapes = new LinkedList<Shape>();
 
 	public DrawPanel() {
