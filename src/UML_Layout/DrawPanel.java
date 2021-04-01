@@ -1,4 +1,3 @@
-// paint: https://www.oracle.com/java/technologies/painting.html, https://www.youtube.com/watch?v=bTaJKm43KGs&ab_channel=TimothyJames
 package UML_Layout;
 
 import java.awt.CardLayout;

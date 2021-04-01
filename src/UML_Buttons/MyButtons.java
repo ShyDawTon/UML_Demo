@@ -45,6 +45,3 @@ public abstract class MyButtons extends JButton{
 	
 	public abstract void onClicked();
 }
-
-
-// resize icon: https://stackoverflow.com/questions/25798156/resizing-icon-to-fit-on-jbutton-in-java

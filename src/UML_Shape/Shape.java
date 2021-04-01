@@ -1,4 +1,3 @@
-// custom shape : https://stackoverflow.com/questions/2483533/java-swing-custom-shapes-2d-graphics
 package UML_Shape;
 
 import java.awt.Color;

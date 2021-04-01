@@ -27,6 +27,3 @@ public class SelectButton extends MyButtons{
 		return;
 	}
 }
-
-
-// resize icon: https://stackoverflow.com/questions/25798156/resizing-icon-to-fit-on-jbutton-in-java
