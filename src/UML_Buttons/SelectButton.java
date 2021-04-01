@@ -23,7 +23,7 @@ public class SelectButton extends MyButtons{
 	
 	@Override
 	public void onClicked() {
-		EventManager.setDrawPanelListener(ButtonsPanel.ButtonsEvent.SELECT);
+		EventManager.setDrawPanelListener(ButtonsEvent.SELECT);
 		return;
 	}
 }

@@ -7,9 +7,10 @@ import UML_Buttons.*;
 import UML_Layout.ButtonsPanel;
 import UML_Layout.DrawPanel;
 import UML_Shape.Shape;
+import UML_Shape.ShapeType;
 
 public class EventManager {
-	public static void setDrawPanelListener(ButtonsPanel.ButtonsEvent event) {
+	public static void setDrawPanelListener(ButtonsEvent event) {
 		DrawPanel drawPanel = FrameManager.getDrawPanel();
 		
 		// clear panel listener
@@ -27,10 +28,10 @@ public class EventManager {
 				drawPanel.addMouseListener(new DragAndDropListener(drawPanel)); 
 				break;
 			case CLASS: 
-				drawPanel.addMouseListener(new createClassClickListener(drawPanel)); 
+				drawPanel.addMouseListener(new CreateShapeClickListener(drawPanel, ShapeType.CLASS)); 
 				break;
 			case USECASE: 
-				drawPanel.addMouseListener(new createUsecaseClickListener(drawPanel)); 
+				drawPanel.addMouseListener(new CreateShapeClickListener(drawPanel, ShapeType.USECASE)); 
 				break;
 		}
 	}

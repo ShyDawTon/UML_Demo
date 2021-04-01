@@ -12,6 +12,6 @@ public class ClassButton extends MyButtons {
 	
 	@Override
 	public void onClicked() {
-		EventManager.setDrawPanelListener(ButtonsPanel.ButtonsEvent.CLASS);
+		EventManager.setDrawPanelListener(ButtonsEvent.CLASS);
 	}
 }

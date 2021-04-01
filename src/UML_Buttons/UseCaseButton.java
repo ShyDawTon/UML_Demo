@@ -12,7 +12,7 @@ public class UseCaseButton extends MyButtons {
 	
 	@Override
 	public void onClicked() {
-		EventManager.setDrawPanelListener(ButtonsPanel.ButtonsEvent.USECASE);
+		EventManager.setDrawPanelListener(ButtonsEvent.USECASE);
 	}
 
 }
