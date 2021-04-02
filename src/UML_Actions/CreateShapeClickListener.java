@@ -23,9 +23,9 @@ public class CreateShapeClickListener extends MouseAdapter {
 		String name = JOptionPane.showInputDialog("enter Name");
 		switch(st) {
 			case CLASS:
-				panel.addShape(new ClassShape(e.getX(), e.getY(), 100, 150, 5, name)); break;
+				panel.addShape(new ClassShape(e.getX(), e.getY(), 100, 150, 5, name, false)); break;
 			case USECASE: 
-				panel.addShape(new UseCaseShape(e.getX(), e.getY(), 150, 100, 5, name)); break;
+				panel.addShape(new UseCaseShape(e.getX(), e.getY(), 150, 100, 5, name, false)); break;
 		}
 		
 	}

@@ -29,6 +29,7 @@ public class DrawPanel extends JLayeredPane{
 	
 	public void addShape(MyShape shape) {
 		shapes.add(shape);
+		this.add(shape, Integer.valueOf(shapes.size()));
 		this.repaint();
 	}
 	

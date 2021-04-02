@@ -16,8 +16,9 @@ import javax.swing.border.Border;
 public abstract class MyShape extends JComponent{
 	protected int inset;
 	protected String name;
+	protected boolean dragAble = false;
 	
-	public MyShape(int x, int y, int width, int height, int inset, String name) {
+	public MyShape(int x, int y, int width, int height, int inset, String name, boolean dragAble) {
 		super();
 		this.setBounds(x, y, width, height);
 		this.inset = inset;
@@ -25,6 +26,7 @@ public abstract class MyShape extends JComponent{
 		DragAndDropMouseEvent event = new DragAndDropMouseEvent();
 		this.addMouseListener(event);
 		this.addMouseMotionListener(event);
+		this.dragAble = dragAble;
 	}
 
 	public int getInset() {
@@ -45,16 +47,28 @@ public abstract class MyShape extends JComponent{
 		this.name = name;
 	}
 
+	public boolean isDragAble() {
+		return dragAble;
+	}
+
+	public void setDragAble(boolean dragAble) {
+		this.dragAble = dragAble;
+	}
+
 	public abstract void draw(Graphics g);
 	
 	private class DragAndDropMouseEvent extends MouseAdapter{
 		private Point prevPt;
 		
 	    public void mousePressed(MouseEvent e) {
+	    	if(!dragAble)
+	    		return;
 	    	prevPt = e.getPoint();
 	    }
 
 	    public void mouseDragged(MouseEvent e){
+	    	if(!dragAble)
+	    		return;
 	    	MyShape shape = (MyShape)e.getSource();
 	    	shape.setLocation(new Point(shape.getX() + e.getX() - prevPt.x, shape.getY() + e.getY() - prevPt.y));
 	    }

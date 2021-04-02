@@ -5,8 +5,8 @@ import java.awt.Font;
 import java.awt.Graphics;
 
 public class ClassShape extends MyShape{
-	public ClassShape(int x, int y, int width, int height, int inset, String name) {
-		super(x, y, width, height, inset, name);
+	public ClassShape(int x, int y, int width, int height, int inset, String name, boolean dragAble) {
+		super(x, y, width, height, inset, name, dragAble);
 	}
 	
 	public void draw(Graphics g) {

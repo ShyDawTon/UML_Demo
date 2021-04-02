@@ -16,15 +16,14 @@ public class EventManager {
 		// clear panel listener
 		for(MouseListener ml: drawPanel.getMouseListeners())
 			drawPanel.removeMouseListener(ml);
-		
-		// remove shape listener
-		drawPanel.removeAll();
 			
+		// set All MyShape dragAble disable
+		for(MyShape shape : drawPanel.getShapes())
+			shape.setDragAble(event==ButtonsEvent.SELECT?true:false);
+		
 		// find listener to use
 		switch(event) {
 			case SELECT: 
-				for(int i=0; i<drawPanel.getShapes().size(); i++)
-					drawPanel.add(drawPanel.getShapes().get(i), Integer.valueOf(i));
 				drawPanel.addMouseListener(new DragAndDropListener(drawPanel)); 
 				break;
 			case CLASS: 
