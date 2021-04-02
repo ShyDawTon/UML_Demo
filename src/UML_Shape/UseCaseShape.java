@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-public class UseCaseShape extends Shape {
+public class UseCaseShape extends MyShape {
 
 	public UseCaseShape(int x, int y, int width, int height, int inset, String name) {
 		super(x, y, width, height, inset, name);

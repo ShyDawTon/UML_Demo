@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import UML_Layout.ButtonsPanel;
 import UML_Manager.EventManager;
 
-public class UseCaseButton extends MyButtons {
+public class UseCaseButton extends MyButton {
 	public UseCaseButton(String iconPath) {
 		super(iconPath);
 	}

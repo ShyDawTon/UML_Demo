@@ -17,17 +17,17 @@ import javax.swing.JComponent;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import UML_Actions.*;
-import UML_Buttons.MyButtons;
+import UML_Buttons.MyButton;
 
 public class DrawPanel extends JLayeredPane{
-	private List<Shape> shapes = new LinkedList<Shape>();
+	private List<MyShape> shapes = new LinkedList<MyShape>();
 
 	public DrawPanel() {
 		super();
 		this.setLayout(null);
 	}
 	
-	public void addShape(Shape shape) {
+	public void addShape(MyShape shape) {
 		shapes.add(shape);
 		this.repaint();
 	}
@@ -35,11 +35,11 @@ public class DrawPanel extends JLayeredPane{
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		for(Shape s : shapes)
+		for(MyShape s : shapes)
 			s.draw(g);
 	}
 	
-	public List<Shape> getShapes(){
+	public List<MyShape> getShapes(){
 		return shapes;
 	}
 }

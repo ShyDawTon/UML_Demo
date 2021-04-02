@@ -8,15 +8,15 @@ import UML_Buttons.*;
 import javax.swing.JPanel;
 
 public class ButtonsPanel extends JPanel{
-	private MyButtons currentButton = null;
+	private MyButton currentButton = null;
 	
-	private List<MyButtons> buttons;
+	private List<MyButton> buttons;
 	
 	public ButtonsPanel() {
 		super();
 		initButtons();
 		this.setLayout(new GridLayout(buttons.size(),1));
-		for(MyButtons button : buttons)
+		for(MyButton button : buttons)
 			this.add(button);
 	}
 	
@@ -24,7 +24,7 @@ public class ButtonsPanel extends JPanel{
 	 * init buttons
 	 */
 	private void initButtons() {
-		buttons = new LinkedList<MyButtons>();
+		buttons = new LinkedList<MyButton>();
 		buttons.add(new SelectButton("src/imgs/select.png"));
 		buttons.add(new AssociationLineButton("src/imgs/associationLine.png"));
 		buttons.add(new GeneralizationLineButton("src/imgs/generalizationLine.png"));
@@ -33,11 +33,11 @@ public class ButtonsPanel extends JPanel{
 		buttons.add(new UseCaseButton("src/imgs/use case.png"));
 	}
 	
-	public void setCurrentButton(MyButtons button) {
+	public void setCurrentButton(MyButton button) {
 		currentButton = button;
 	}
 	
-	public MyButtons getCurrentButton() {
+	public MyButton getCurrentButton() {
 		return currentButton;
 	}
 }

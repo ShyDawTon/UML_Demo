@@ -6,7 +6,7 @@ import UML_Actions.*;
 import UML_Buttons.*;
 import UML_Layout.ButtonsPanel;
 import UML_Layout.DrawPanel;
-import UML_Shape.Shape;
+import UML_Shape.MyShape;
 import UML_Shape.ShapeType;
 
 public class EventManager {

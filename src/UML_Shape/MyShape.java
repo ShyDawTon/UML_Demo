@@ -13,11 +13,11 @@ import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 
-public abstract class Shape extends JComponent{
+public abstract class MyShape extends JComponent{
 	protected int inset;
 	protected String name;
 	
-	public Shape(int x, int y, int width, int height, int inset, String name) {
+	public MyShape(int x, int y, int width, int height, int inset, String name) {
 		super();
 		this.setBounds(x, y, width, height);
 		this.inset = inset;
@@ -55,7 +55,7 @@ public abstract class Shape extends JComponent{
 	    }
 
 	    public void mouseDragged(MouseEvent e){
-	    	Shape shape = (Shape)e.getSource();
+	    	MyShape shape = (MyShape)e.getSource();
 	    	shape.setLocation(new Point(shape.getX() + e.getX() - prevPt.x, shape.getY() + e.getY() - prevPt.y));
 	    }
 	}

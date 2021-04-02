@@ -17,8 +17,8 @@ import javax.swing.*;
 
 import UML_Manager.EventManager;
 
-public abstract class MyButtons extends JButton{	
-	public MyButtons(String iconPath) {
+public abstract class MyButton extends JButton{	
+	public MyButton(String iconPath) {
 		setIconImg(iconPath);
 		this.setBackground(Color.white);
 		this.setBorder(BorderFactory.createEmptyBorder());

@@ -16,7 +16,7 @@ import javax.swing.*;
 import UML_Layout.ButtonsPanel;
 import UML_Manager.EventManager;
 
-public class SelectButton extends MyButtons{
+public class SelectButton extends MyButton{
 	public SelectButton(String iconPath) {
 		super(iconPath);
 	}

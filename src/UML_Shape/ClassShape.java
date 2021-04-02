@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 
-public class ClassShape extends Shape{
+public class ClassShape extends MyShape{
 	public ClassShape(int x, int y, int width, int height, int inset, String name) {
 		super(x, y, width, height, inset, name);
 	}

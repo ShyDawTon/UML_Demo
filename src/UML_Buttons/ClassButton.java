@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import UML_Layout.ButtonsPanel;
 import UML_Manager.EventManager;
 
-public class ClassButton extends MyButtons {
+public class ClassButton extends MyButton {
 	public ClassButton(String iconPath) {
 		super(iconPath);
 	}

@@ -1,6 +1,6 @@
 package UML_Manager;
 
-import UML_Buttons.MyButtons;
+import UML_Buttons.MyButton;
 import UML_Layout.*;
 
 public class FrameManager {
