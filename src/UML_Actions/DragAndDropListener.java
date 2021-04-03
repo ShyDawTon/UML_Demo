@@ -10,15 +10,17 @@ import UML_Layout.DrawPanel;
 import UML_Shape.MyShape;
 
 public class DragAndDropListener extends MouseAdapter {
+	private MyShape shape;
 	private Point prevPt;
 	private Point dropPt;
 	
     public void mousePressed(MouseEvent e) {
+    	shape  = (MyShape)e.getSource();
     	prevPt = e.getPoint();
     }
 
     public void mouseDragged(MouseEvent e){
-    	MyShape shape = (MyShape)e.getSource();
+    	shape = (MyShape)e.getSource();
     	dropPt = e.getPoint();
     	int diffx = dropPt.x - prevPt.x;
     	int diffy = dropPt.y - prevPt.y;

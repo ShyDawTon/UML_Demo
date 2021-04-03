@@ -43,5 +43,9 @@ public class MyLine extends JComponent{
 	public void draw(Graphics g) {
 		g.setColor(color);
 		g.drawLine(p1.x, p1.y, p2.x, p2.y);
+		
+		
+        //g.drawLine(p2.x, p2.y, Math.round(left.x), Math.round(left.y));
+        //g.drawLine(p2.x, p2.y, Math.round(right.x), Math.round(right.y));
 	}
 }

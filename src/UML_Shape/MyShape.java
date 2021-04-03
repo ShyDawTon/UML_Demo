@@ -123,15 +123,11 @@ public abstract class MyShape extends JComponent{
 	public void setBounds(int x, int y, int width, int height) {
 		super.setBounds(x, y, width, height);
 		relocatePosition();
-		if(getParent()!=null)
-			getParent().repaint();
 	}
 	
 	@Override
 	public void setLocation(int x, int y) {
 		super.setLocation(x, y);
 		relocatePosition();
-		if(getParent()!=null)
-			getParent().repaint();
 	}
 }
