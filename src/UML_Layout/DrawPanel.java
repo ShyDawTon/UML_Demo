@@ -31,19 +31,20 @@ public class DrawPanel extends JLayeredPane{
 	public void addShape(MyShape shape) {
 		shapes.add(shape);
 		this.add(shape, Integer.valueOf(shapes.size()));
-		this.repaint();
+		repaint();
 	}
 	
 	public void addLine(MyLine line) {
 		lines.add(line);
-		this.repaint();
+		this.add(line, 0);
+		repaint();
 	}
 	
 	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-		for(MyShape s : shapes)
-			s.draw(g);
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		for(MyShape shape : shapes)
+			shape.draw(g);
 		for(MyLine line : lines)
 			line.draw(g);
 	}

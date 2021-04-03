@@ -5,7 +5,9 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.geom.Line2D;
 
-public class MyLine {
+import javax.swing.JComponent;
+
+public class MyLine extends JComponent{
 	/**
 	 * LINE TYPE
 	 */
@@ -23,20 +25,24 @@ public class MyLine {
 	/**
 	 * MyLine variable
 	 */
+	private MyShape source, dest;
+	private Color color;
 	private int lineType = LINE_TYPE_NORMALLINE;
 	private int lineArrowType = LINE_ARROW_TYPE_NORMAL;
-	private Point source, dest;
-	private Color color;
 	
-	public MyLine(Point source, Point dest, int lineType, int lineArrowType, Color color) {
+	public MyLine(MyShape source, MyShape dest, Point p1, Point p2, Color color, int lineType, int lineArrowType) {
+		super();
 		this.source = source;
 		this.dest = dest;
+		//this.p1 = p1;
+		//this.p2 = p2;
+		this.color = color;
 		this.lineType = lineType;
 		this.lineArrowType = lineArrowType;
 	}
-	
+
 	public void draw(Graphics g) {
 		g.setColor(color);
-		g.drawLine(source.x, source.y, dest.x, dest.y);
+		g.drawLine(source.getLinePoint().x, source.getLinePoint().y, dest.getLinePoint().x, dest.getLinePoint().y);
 	}
 }
