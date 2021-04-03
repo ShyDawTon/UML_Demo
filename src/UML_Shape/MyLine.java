@@ -26,23 +26,22 @@ public class MyLine extends JComponent{
 	 * MyLine variable
 	 */
 	private MyShape source, dest;
+	private Point p1,p2;
 	private Color color;
 	private int lineType = LINE_TYPE_NORMALLINE;
 	private int lineArrowType = LINE_ARROW_TYPE_NORMAL;
 	
-	public MyLine(MyShape source, MyShape dest, Point p1, Point p2, Color color, int lineType, int lineArrowType) {
+	public MyLine(Point p1, Point p2, Color color, int lineType, int lineArrowType) {
 		super();
-		this.source = source;
-		this.dest = dest;
-		//this.p1 = p1;
-		//this.p2 = p2;
+		this.p1 = p1;
+		this.p2 = p2;
 		this.color = color;
 		this.lineType = lineType;
 		this.lineArrowType = lineArrowType;
 	}
-
+	
 	public void draw(Graphics g) {
 		g.setColor(color);
-		g.drawLine(source.getLinePoint().x, source.getLinePoint().y, dest.getLinePoint().x, dest.getLinePoint().y);
+		g.drawLine(p1.x, p1.y, p2.x, p2.y);
 	}
 }

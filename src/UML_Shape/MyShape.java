@@ -22,11 +22,10 @@ public abstract class MyShape extends JComponent{
 	protected String name;
 	protected List<MouseAdapter> mouseListenerContainer = new ArrayList<MouseAdapter>();
 	
-	protected Point north = new Point(getWidth()/2, 0);
-	protected Point east = new Point(getWidth(), getHeight()/2);
-	protected Point south = new Point(getWidth()/2, getHeight());
-	protected Point west = new Point(0, getHeight()/2);
-	protected Point linePoint;
+	protected Point north = new Point();
+	protected Point east = new Point();
+	protected Point south = new Point();
+	protected Point west = new Point();
 	
 	public MyShape() {
 		super();
@@ -37,11 +36,6 @@ public abstract class MyShape extends JComponent{
 		this.setBounds(x, y, width, height);
 		this.inset = inset;
 		setName(name);
-		north = new Point(getWidth()/2, 0);
-		east = new Point(getWidth(), getHeight()/2);
-		south = new Point(getWidth()/2, getHeight());
-		west = new Point(0, getHeight()/2);
-		linePoint = new Point();
 	}
 	
 	public int getInset() {
@@ -62,6 +56,13 @@ public abstract class MyShape extends JComponent{
 		this.name = name;
 	}
 
+	public void relocatePosition() {
+		north.setLocation(getX() + getWidth()/2, getY());
+		east.setLocation(getX() + getWidth(), getY() + getHeight()/2);
+		south.setLocation(getX() + getWidth()/2, getY() + getHeight());
+		west.setLocation(getX(), getY()+ getHeight()/2);
+	}
+	
 	/**
 	 * draw shape
 	 * @param g the panel graphics must draw
@@ -99,35 +100,38 @@ public abstract class MyShape extends JComponent{
 	 * @return
 	 */
 	public Point getNearestPosition(Point p) {
-		Point nearest = new Point();
-		
-		// set point x, y because this p is DrawPanel's position
-		p.setLocation(p.x-getX(), p.y-getY());
+		Point nearest = null;
 		
 		double shortestDistance = Double.MAX_VALUE;
 		List<Point> positions = new ArrayList<Point>(Arrays.asList(north,east,south,west));
 		for(Point shapePosition : positions) {
 			double distance = getDistance(p, shapePosition);
 			if(distance < shortestDistance) {
-				nearest.setLocation(shapePosition.x, shapePosition.y);
+				nearest = shapePosition;
 				shortestDistance = distance;
 			}
 		}
 		
-		// set nearest to DrawPanel's position
-		nearest.setLocation(nearest.x+getX(), nearest.y+getY());
 		return nearest;
-	}
-	
-	public void setLinePoint(Point p) {
-		linePoint = p;
-	}
-	
-	public Point getLinePoint() {
-		return linePoint;
 	}
 	
 	private double getDistance(Point p1, Point p2) {
 		return Math.sqrt( Math.pow(p1.x-p2.x, 2) +  Math.pow(p1.y-p2.y, 2));
+	}
+	
+	@Override
+	public void setBounds(int x, int y, int width, int height) {
+		super.setBounds(x, y, width, height);
+		relocatePosition();
+		if(getParent()!=null)
+			getParent().repaint();
+	}
+	
+	@Override
+	public void setLocation(int x, int y) {
+		super.setLocation(x, y);
+		relocatePosition();
+		if(getParent()!=null)
+			getParent().repaint();
 	}
 }

@@ -36,10 +36,8 @@ public class DrawLineListener extends MouseAdapter {
 
 		if(source==null || dest==null || source == dest)
 			return;
-		
-		source.setLinePoint(p1);
-		dest.setLinePoint(p2);
-		drawPanel.addLine(new MyLine(source, dest, p1, p2, Color.black, MyLine.LINE_TYPE_NORMALLINE, MyLine.LINE_ARROW_TYPE_NORMAL));
+
+		drawPanel.addLine(new MyLine(p1, p2, Color.black, MyLine.LINE_TYPE_NORMALLINE, MyLine.LINE_ARROW_TYPE_NORMAL));
 	}
 	
 	private MyShape findMouseEventShape(Point p) {

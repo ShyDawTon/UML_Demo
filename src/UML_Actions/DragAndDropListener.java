@@ -23,8 +23,7 @@ public class DragAndDropListener extends MouseAdapter {
     	int diffx = dropPt.x - prevPt.x;
     	int diffy = dropPt.y - prevPt.y;
 
-    	shape.setLocation(new Point(shape.getX() + diffx, shape.getY() + diffy));
-    	shape.setLinePoint(new Point(shape.getLinePoint().x + diffx, shape.getLinePoint().y + diffy));
+    	shape.setLocation(shape.getX() + diffx, shape.getY() + diffy);
     	shape.getParent().repaint();
     }
 }
