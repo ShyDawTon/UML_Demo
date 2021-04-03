@@ -33,9 +33,9 @@ public class DrawLineListener extends MouseAdapter {
 	    		p1 = e.getPoint();
 	    		ableDrawLine = true;
 	    		return;
-	    	}
-				
+	    	}		
 		}
+		ableDrawLine = false;
 	}
 	
 	@Override
