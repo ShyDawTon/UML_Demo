@@ -22,13 +22,13 @@ public class EventManager {
 			drawPanel.removeMouseMotionListener(mml);
 			
 		// set All MyShape dragAble disable
-		for(MyShape shape : drawPanel.getShapes())
-			shape.setDragAble(event==ButtonsEvent.SELECT?true:false);
+		drawPanel.removeComponentsMouseEvent();
 		
 		// find listener to use
 		switch(event) {
 			case SELECT: 
-				drawPanel.addMouseListener(new DragAndDropListener(drawPanel)); 
+				//drawPanel.addMouseListener(new DragAndDropListener(drawPanel)); 
+				drawPanel.addComponentsMouseEvent(new DragAndDropListener());
 				break;
 			case ASSOCIATION_LINE:
 				//DrawLineListener drawLineListener = new DrawLineListener(drawPanel);

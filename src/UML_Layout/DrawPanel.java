@@ -43,4 +43,22 @@ public class DrawPanel extends JLayeredPane{
 	public List<MyShape> getShapes(){
 		return shapes;
 	}
+	
+	/**
+	 * add MyShape mouse event in draw panel
+	 * @param mouseAdapter
+	 */
+	public void addComponentsMouseEvent(MouseAdapter mouseAdapter) {
+		for(MyShape shape: shapes)
+			shape.addAllMouseEvent(mouseAdapter);
+	}
+	
+	/**
+	 * remove MyShape mouse event in draw panel
+	 * @param mouseAdapter
+	 */
+	public void removeComponentsMouseEvent() {
+		for(MyShape shape: shapes)
+			shape.removeAllMouseEvent();;
+	}
 }
