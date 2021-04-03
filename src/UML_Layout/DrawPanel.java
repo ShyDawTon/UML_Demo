@@ -21,7 +21,8 @@ import UML_Buttons.MyButton;
 
 public class DrawPanel extends JLayeredPane{
 	private List<MyShape> shapes = new LinkedList<MyShape>();
-
+	private List<MyLine> lines = new LinkedList<MyLine>();
+	
 	public DrawPanel() {
 		super();
 		this.setLayout(null);
@@ -33,13 +34,24 @@ public class DrawPanel extends JLayeredPane{
 		this.repaint();
 	}
 	
+	public void addLine(MyLine line) {
+		lines.add(line);
+		this.repaint();
+	}
+	
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
 		for(MyShape s : shapes)
 			s.draw(g);
+		for(MyLine line : lines)
+			line.draw(g);
 	}
 	
+	/**
+	 * get MyShapes in this Panel
+	 * @return
+	 */
 	public List<MyShape> getShapes(){
 		return shapes;
 	}

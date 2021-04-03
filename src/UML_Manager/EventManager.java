@@ -31,9 +31,9 @@ public class EventManager {
 				drawPanel.addComponentsMouseEvent(new DragAndDropListener());
 				break;
 			case ASSOCIATION_LINE:
-				//DrawLineListener drawLineListener = new DrawLineListener(drawPanel);
-				//drawPanel.addMouseListener(drawLineListener); 
-				//drawPanel.addMouseMotionListener(drawLineListener); 
+				DrawLineListener drawLineListener = new DrawLineListener(drawPanel);
+				drawPanel.addMouseListener(drawLineListener);
+				drawPanel.addMouseMotionListener(drawLineListener);
 				break;
 			case COMPOSITION_LINE:
 				break;
