@@ -14,7 +14,7 @@ public class UseCaseShape extends MyShape {
 	}
 
 	@Override
-	public void draw(Graphics g) {
+	public void drawCustomShape(Graphics g) {
 		// draw border
 		g.setColor(Color.black);
 		g.fillOval(getX(), getY(), getWidth(), getHeight());

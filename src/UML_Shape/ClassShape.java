@@ -13,7 +13,8 @@ public class ClassShape extends MyShape{
 		super(x, y, width, height, inset, name);
 	}
 	
-	public void draw(Graphics g) {
+	@Override
+	public void drawCustomShape(Graphics g) {
 		// set background color 
 		g.setColor(Color.white);
 		

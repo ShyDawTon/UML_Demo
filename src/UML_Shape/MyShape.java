@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -16,6 +17,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 import java.lang.Math;
+import java.awt.geom.*;
 
 public abstract class MyShape extends JComponent{
 	protected int inset;
@@ -26,6 +28,8 @@ public abstract class MyShape extends JComponent{
 	protected Point east = new Point();
 	protected Point south = new Point();
 	protected Point west = new Point();
+	protected List<Point> positions = new ArrayList<Point>();
+	protected boolean selected;
 	
 	public MyShape() {
 		super();
@@ -36,6 +40,11 @@ public abstract class MyShape extends JComponent{
 		this.setBounds(x, y, width, height);
 		this.inset = inset;
 		setName(name);
+		positions.add(north);
+		positions.add(east);
+		positions.add(south);
+		positions.add(west);
+		selected = false;
 	}
 	
 	public int getInset() {
@@ -56,6 +65,15 @@ public abstract class MyShape extends JComponent{
 		this.name = name;
 	}
 
+	public void setSelected(boolean active) {
+		this.selected = active;
+		this.getParent().repaint();
+	}
+	
+	public boolean getSelected() {
+		return this.selected;
+	}
+	
 	public void relocatePosition() {
 		north.setLocation(getX() + getWidth()/2, getY());
 		east.setLocation(getX() + getWidth(), getY() + getHeight()/2);
@@ -67,7 +85,24 @@ public abstract class MyShape extends JComponent{
 	 * draw shape
 	 * @param g the panel graphics must draw
 	 */
-	public abstract void draw(Graphics g);
+	public void draw(Graphics g) {
+		drawPosition(g);
+		drawCustomShape(g);
+	}
+	
+	public abstract void drawCustomShape(Graphics g);
+	
+	public void drawPosition(Graphics g) {
+		if(!selected)
+			return;
+		Graphics2D g2d = (Graphics2D)g;
+		g2d.setColor(Color.black);
+		for(Point position: positions) {
+			Ellipse2D.Double circle = new Ellipse2D.Double(position.x-getInset(), position.y-getInset(), 10, 10);
+			g2d.draw(circle);
+			g2d.fill(circle);
+		}		
+	}
 	
 	/**
 	 * remove mouse event in container

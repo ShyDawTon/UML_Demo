@@ -20,7 +20,9 @@ public class EventManager {
 			drawPanel.removeMouseListener(ml);
 		for(MouseMotionListener mml: drawPanel.getMouseMotionListeners())
 			drawPanel.removeMouseMotionListener(mml);
-			
+		for(MyShape s : drawPanel.getShapes())
+			s.setSelected(false);
+		
 		// set All MyShape dragAble disable
 		drawPanel.removeComponentsMouseEvent();
 		

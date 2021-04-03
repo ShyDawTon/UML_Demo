@@ -14,9 +14,19 @@ public class DragAndDropListener extends MouseAdapter {
 	private Point prevPt;
 	private Point dropPt;
 	
+	public void finalize(){
+		if(shape!=null)
+			shape.setSelected(true);
+	}
+	
     public void mousePressed(MouseEvent e) {
-    	shape  = (MyShape)e.getSource();
+    	MyShape curShape = (MyShape)e.getSource();
+    	if(shape != curShape && shape != null)
+    		shape.setSelected(false);
+    	shape  = curShape;
     	prevPt = e.getPoint();
+    	shape.setSelected(true);
+    	shape.getParent().repaint();
     }
 
     public void mouseDragged(MouseEvent e){
@@ -27,5 +37,8 @@ public class DragAndDropListener extends MouseAdapter {
 
     	shape.setLocation(shape.getX() + diffx, shape.getY() + diffy);
     	shape.getParent().repaint();
+    }
+    
+    public void MouseReleased(MouseEvent e) {
     }
 }
