@@ -3,8 +3,6 @@ package UML_Shape;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.geom.Line2D;
-
 import javax.swing.JComponent;
 
 public class MyLine extends JComponent{

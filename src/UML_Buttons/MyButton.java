@@ -1,21 +1,13 @@
 package UML_Buttons;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Image;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import UML_Actions.ButtonClickListener;
 import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import javax.imageio.ImageIO;
-
 import javax.swing.*;
 
-import UML_Manager.EventManager;
 
 public abstract class MyButton extends JButton{	
 	public MyButton(String iconPath) {

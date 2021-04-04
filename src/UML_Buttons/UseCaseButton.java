@@ -1,8 +1,5 @@
 package UML_Buttons;
 
-import java.awt.event.ActionEvent;
-
-import UML_Layout.ButtonsPanel;
 import UML_Manager.EventManager;
 
 public class UseCaseButton extends MyButton {

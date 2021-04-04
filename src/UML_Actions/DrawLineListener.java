@@ -4,10 +4,7 @@ import java.awt.Color;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Collections;
-import java.util.List;
 import java.util.ListIterator;
-
 import UML_Layout.DrawPanel;
 import UML_Shape.MyLine;
 import UML_Shape.MyShape;

@@ -27,6 +27,5 @@ public class CreateShapeClickListener extends MouseAdapter {
 			case USECASE: 
 				panel.addShape(new UseCaseShape(e.getX(), e.getY(), 150, 100, 5, name)); break;
 		}
-		
 	}
 }

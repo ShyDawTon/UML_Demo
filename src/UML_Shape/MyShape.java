@@ -1,28 +1,19 @@
 package UML_Shape;
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import javax.swing.BorderFactory;
 import javax.swing.JComponent;
-import javax.swing.border.Border;
 import java.lang.Math;
 import java.awt.geom.*;
 
 public abstract class MyShape extends JComponent{
 	protected int inset;
 	protected String name;
-	protected List<MouseAdapter> mouseListenerContainer = new ArrayList<MouseAdapter>();
 	
 	protected Point north = new Point();
 	protected Point east = new Point();
@@ -102,31 +93,6 @@ public abstract class MyShape extends JComponent{
 			g2d.draw(circle);
 			g2d.fill(circle);
 		}		
-	}
-	
-	/**
-	 * remove mouse event in container
-	 */
-	public void removeAllMouseEvent() {
-		for(MouseAdapter mouseAdapter: mouseListenerContainer) {
-			this.removeMouseListener(mouseAdapter);
-			this.removeMouseMotionListener(mouseAdapter);
-			this.removeMouseWheelListener(mouseAdapter);
-		}
-		mouseListenerContainer.clear();
-	}
-	
-	/**
-	 * set MyShape mouseAdapter
-	 * @param mouseAdapter
-	 */
-	public void addAllMouseEvent(MouseAdapter mouseAdapter) {
-		if(mouseListenerContainer.contains(mouseAdapter))
-			return;
-		mouseListenerContainer.add(mouseAdapter);
-		this.addMouseListener(mouseAdapter);
-		this.addMouseMotionListener(mouseAdapter);
-		this.addMouseWheelListener(mouseAdapter);
 	}
 	
 	/**
