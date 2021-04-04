@@ -13,7 +13,7 @@ public class DrawPanel extends JLayeredPane{
 	
 	public DrawPanel() {
 		super();
-		this.setLayout(null);
+		this.setLayout(null);;
 	}
 	
 	public void addShape(MyShape shape) {
@@ -25,6 +25,12 @@ public class DrawPanel extends JLayeredPane{
 	public void addLine(MyLine line) {
 		lines.add(line);
 		this.add(line, 0);
+		repaint();
+	}
+	
+	public void removeShape(MyShape shape) {
+		shapes.remove(shape);
+		this.remove(shape);
 		repaint();
 	}
 	

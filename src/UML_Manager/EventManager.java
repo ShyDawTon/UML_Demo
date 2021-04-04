@@ -33,6 +33,7 @@ public class EventManager {
 		switch(event) {
 			case SELECT: 
 				addAllMouseEvent(new ArrayList<JComponent>(drawPanel.getShapes()), new DragAndDropListener());
+				addAllMouseEvent(drawPanel, new DragAndChooseGroup(drawPanel));
 				break;
 			case ASSOCIATION_LINE:
 				addAllMouseEvent(drawPanel, new DrawLineListener(drawPanel));
