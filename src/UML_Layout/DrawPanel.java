@@ -7,6 +7,8 @@ import java.util.*;
 
 import javax.swing.JLayeredPane;
 
+import UML_Line.MyLine;
+
 public class DrawPanel extends JLayeredPane{
 	private List<MyShape> shapes = new ArrayList<MyShape>();
 	private List<MyLine> lines = new ArrayList<MyLine>();

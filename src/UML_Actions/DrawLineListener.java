@@ -5,17 +5,21 @@ import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ListIterator;
+
 import UML_Layout.DrawPanel;
-import UML_Shape.MyLine;
+import UML_Line.LineArrowType;
+import UML_Line.*;
 import UML_Shape.MyShape;
 
 public class DrawLineListener extends MouseAdapter {
 	private Point p1, p2;
 	private MyShape source, dest;
 	private DrawPanel drawPanel;
+	private LineArrowType lineArrowType;
 	
-	public DrawLineListener(DrawPanel drawPanel) {
+	public DrawLineListener(DrawPanel drawPanel, LineArrowType lineArrowType) {
 		this.drawPanel = drawPanel;
+		this.lineArrowType = lineArrowType;
 	}
 	
 	@Override
@@ -34,7 +38,17 @@ public class DrawLineListener extends MouseAdapter {
 		if(p1==null || p2==null || source == dest)
 			return;
 
-		drawPanel.addLine(new MyLine(p1, p2, Color.black, MyLine.LINE_TYPE_NORMALLINE, MyLine.LINE_ARROW_TYPE_NORMAL));
+		switch(lineArrowType) {
+			case LINE_ARROW_TYPE_ASSOCIATIONLINE: 
+				drawPanel.addLine(new AssociationLine(p1, p2, Color.black));
+				break;
+			case LINE_ARROW_TYPE_COMPOSITIONLINE: 
+				drawPanel.addLine(new CompositionLine(p1, p2, Color.black));
+				break;
+			case LINE_ARROW_TYPE_GENERALIZATIONLINE: 
+				drawPanel.addLine(new GeneralizationLine(p1, p2, Color.black));
+				break;
+		}
 	}
 	
 	private MyShape findMouseEventShape(Point p) {

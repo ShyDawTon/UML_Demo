@@ -16,6 +16,7 @@ import UML_Actions.*;
 import UML_Buttons.*;
 import UML_Layout.ButtonsPanel;
 import UML_Layout.DrawPanel;
+import UML_Line.LineArrowType;
 import UML_Shape.MyShape;
 import UML_Shape.ShapeType;
 
@@ -35,11 +36,13 @@ public class EventManager {
 				addAllMouseEvent(drawPanel, new DragAndChooseGroup(drawPanel));
 				break;
 			case ASSOCIATION_LINE:
-				addAllMouseEvent(drawPanel, new DrawLineListener(drawPanel));
+				addAllMouseEvent(drawPanel, new DrawLineListener(drawPanel, LineArrowType.LINE_ARROW_TYPE_ASSOCIATIONLINE));
 				break;
 			case COMPOSITION_LINE:
+				addAllMouseEvent(drawPanel, new DrawLineListener(drawPanel, LineArrowType.LINE_ARROW_TYPE_COMPOSITIONLINE));
 				break;
 			case GENERALIZATION_LINE:
+				addAllMouseEvent(drawPanel, new DrawLineListener(drawPanel, LineArrowType.LINE_ARROW_TYPE_GENERALIZATIONLINE));
 				break;
 			case CLASS: 
 				addAllMouseEvent(drawPanel, new CreateShapeClickListener(drawPanel, ShapeType.CLASS)); 
