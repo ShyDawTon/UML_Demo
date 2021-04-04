@@ -64,7 +64,6 @@ public abstract class MyShape extends JComponent{
 
 	public void setSelected(boolean active) {
 		this.selected = active;
-		this.getParent().repaint();
 	}
 	
 	public boolean getSelected() {

@@ -1,8 +1,8 @@
 package UML_Layout;
 
 import java.awt.BorderLayout;
-import javax.swing.JFrame;
-import javax.swing.JSplitPane;
+import javax.swing.*;    
+import java.awt.event.*;   
 
 public class MainFrame extends JFrame{
 	private int width = 1200;
@@ -23,6 +23,8 @@ public class MainFrame extends JFrame{
 		drawPanel = new DrawPanel();
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, buttonsPanel, drawPanel);
 		splitPane.setResizeWeight(0.01f);
+		
+		this.setJMenuBar(new MenuBar(drawPanel));
 		this.getContentPane().add(splitPane);
 
 		// set frame visible

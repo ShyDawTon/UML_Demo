@@ -26,7 +26,7 @@ public class DragAndDropListener extends MouseAdapter {
     	shape  = curShape;
     	prevPt = e.getPoint();
     	shape.setSelected(true);
-    	shape.getParent().repaint();
+    	drawPanel.repaint();
     }
 
     public void mouseDragged(MouseEvent e){
@@ -40,5 +40,6 @@ public class DragAndDropListener extends MouseAdapter {
     }
     
     public void MouseReleased(MouseEvent e) {
+    	drawPanel.repaint();
     }
 }

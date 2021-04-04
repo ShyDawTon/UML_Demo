@@ -8,8 +8,8 @@ import java.util.*;
 import javax.swing.JLayeredPane;
 
 public class DrawPanel extends JLayeredPane{
-	private List<MyShape> shapes = new LinkedList<MyShape>();
-	private List<MyLine> lines = new LinkedList<MyLine>();
+	private List<MyShape> shapes = new ArrayList<MyShape>();
+	private List<MyLine> lines = new ArrayList<MyLine>();
 	
 	public DrawPanel() {
 		super();

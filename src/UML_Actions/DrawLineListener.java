@@ -31,7 +31,7 @@ public class DrawLineListener extends MouseAdapter {
 		if(dest!=null)
 			p2 = dest.getNearestPosition(e.getPoint());
 
-		if(source==null || dest==null || source == dest)
+		if(p1==null || p2==null || source == dest)
 			return;
 
 		drawPanel.addLine(new MyLine(p1, p2, Color.black, MyLine.LINE_TYPE_NORMALLINE, MyLine.LINE_ARROW_TYPE_NORMAL));
