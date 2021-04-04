@@ -3,19 +3,23 @@ package UML_Actions;
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import UML_Layout.DrawPanel;
+import UML_Manager.EventManager;
 import UML_Shape.MyShape;
 
 public class DragAndDropListener extends MouseAdapter {
+	private DrawPanel drawPanel;
 	private MyShape shape;
 	private Point prevPt;
 	private Point dropPt;
 	
-	public void finalize(){
-		if(shape!=null)
-			shape.setSelected(true);
+	public DragAndDropListener(DrawPanel drawPanel) {
+		this.drawPanel = drawPanel;
 	}
 	
     public void mousePressed(MouseEvent e) {
+    	EventManager.resetComponentSelect(drawPanel);
     	MyShape curShape = (MyShape)e.getSource();
     	if(shape != curShape && shape != null)
     		shape.setSelected(false);

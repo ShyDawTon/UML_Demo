@@ -26,13 +26,12 @@ public class EventManager {
 		// initial state
 		removeAllMouseEvent(drawPanel);
 		removeAllMouseEvent(new ArrayList<JComponent>(drawPanel.getShapes()));
-		for(MyShape s : drawPanel.getShapes())
-			s.setSelected(false);	
+		resetComponentSelect(drawPanel);
 		
 		// find listener to use
 		switch(event) {
 			case SELECT: 
-				addAllMouseEvent(new ArrayList<JComponent>(drawPanel.getShapes()), new DragAndDropListener());
+				addAllMouseEvent(new ArrayList<JComponent>(drawPanel.getShapes()), new DragAndDropListener(drawPanel));
 				addAllMouseEvent(drawPanel, new DragAndChooseGroup(drawPanel));
 				break;
 			case ASSOCIATION_LINE:
@@ -98,5 +97,11 @@ public class EventManager {
 	public static void removeAllMouseEvent(List<JComponent> comps) {
 		for(JComponent comp : comps)
 			removeAllMouseEvent(comp);
+	}
+	
+	public static void resetComponentSelect(DrawPanel drawPanel) {
+		for(MyShape s : drawPanel.getShapes())
+			s.setSelected(false);	
+		drawPanel.repaint();
 	}
 }

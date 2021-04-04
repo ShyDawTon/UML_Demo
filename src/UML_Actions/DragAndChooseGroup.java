@@ -9,6 +9,7 @@ import java.util.List;
 import java.lang.Math;
 
 import UML_Layout.DrawPanel;
+import UML_Manager.EventManager;
 import UML_Manager.FrameManager;
 import UML_Shape.MyShape;
 import UML_Shape.SelectRectangle;
@@ -28,15 +29,18 @@ public class DragAndChooseGroup extends MouseAdapter {
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
+    	EventManager.resetComponentSelect(drawPanel);
 		pressedPoint = e.getPoint();
 		chooseRect.setBounds(pressedPoint.x, pressedPoint.y, 0, 0);
 		drawPanel.addShape(chooseRect);
+		shapeContainer.clear();
 	}
 	
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		Point leftTopPoint = new Point();
 		int width, height;
+		
 		draggedPoint = e.getPoint();
 		leftTopPoint.setLocation(pressedPoint.x<=draggedPoint.x?pressedPoint.x:draggedPoint.x, 
 								 pressedPoint.y<=draggedPoint.y?pressedPoint.y:draggedPoint.y);
@@ -44,12 +48,23 @@ public class DragAndChooseGroup extends MouseAdapter {
 		height = Math.abs(pressedPoint.y - draggedPoint.y);
 		
 		chooseRect.setBounds(leftTopPoint.x, leftTopPoint.y, width, height);
+		checkShapeInside(drawPanel.getShapes());
 		
-		drawPanel.repaint();
+		drawPanel.repaint();	
 	}
 	
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		drawPanel.removeShape(chooseRect);
+	}
+	
+	public void checkShapeInside(List<MyShape> shapes) {
+		for(MyShape shape : shapes) {
+			if(shape.getX()>=chooseRect.getX() && shape.getX()+shape.getWidth()<=chooseRect.getX()+chooseRect.getWidth() &&
+					shape.getY()>=chooseRect.getY() && shape.getY()+shape.getHeight()<=chooseRect.getY()+chooseRect.getHeight())
+				shape.setSelected(true);
+			else
+				shape.setSelected(false);
+		}
 	}
 }
