@@ -26,7 +26,6 @@ public abstract class MyButton extends JButton{
 			BufferedImage master;
 			master = ImageIO.read(new File(iconPath));
 			Image scaled = master.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
-			System.out.println(iconPath.toString());
 			Icon icon = new ImageIcon(scaled);
 			this.setIcon(icon);
 		}

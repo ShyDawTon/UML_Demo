@@ -76,3 +76,5 @@ https://stackoverflow.com/questions/25798156/resizing-icon-to-fit-on-jbutton-in-
 https://stackoverflow.com/questions/2483533/java-swing-custom-shapes-2d-graphics
 6. moving custom component by mouse
 https://www.youtube.com/watch?v=HYqODAQ2lQw
+7. draw custom line arrow
+https://coderanch.com/t/340443/java/Draw-arrow-head-line
