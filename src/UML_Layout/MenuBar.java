@@ -5,6 +5,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 import UML_Actions.GroupActionListener;
+import UML_Actions.RenameActionListener;
 import UML_Actions.UnGroupActionListener;
 import UML_Manager.FrameManager;
 
@@ -24,6 +25,7 @@ public class MenuBar extends JMenuBar{
 		JMenuItem groupItem = new JMenuItem("Group Object");
 		JMenuItem unGroupItem = new JMenuItem("UnGroup Object");
 		//renameItem.addActionListener(new RenameActionListener(FrameManager.getDrawPanel()));
+		renameItem.addActionListener(new RenameActionListener(drawPanel));
 		groupItem.addActionListener(new GroupActionListener(drawPanel));
 		unGroupItem.addActionListener(new UnGroupActionListener(drawPanel));
 		

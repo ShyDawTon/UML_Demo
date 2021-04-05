@@ -10,9 +10,10 @@ import java.util.List;
 import java.lang.Math;
 
 public class GroupShape extends MyShape {
-	private List<MyShape> shapeContainer = new ArrayList<MyShape>();
+	private List<MyShape> shapeContainer;
 	
 	public GroupShape(List<MyShape> shapes) {
+		shapeContainer = new ArrayList<MyShape>();
 		addShape(shapes);
 		calculateBounds();
 	}
@@ -76,6 +77,13 @@ public class GroupShape extends MyShape {
 	
 	public void removeShape(MyShape shape) {
 		shapeContainer.remove(shape);
+	}
+	
+	@Override
+	public void setName(String name) {
+		super.setName(name);
+		for(MyShape shape : shapeContainer)
+			shape.setName(name);
 	}
 	
 	private void calculateBounds() {

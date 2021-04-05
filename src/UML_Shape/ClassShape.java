@@ -36,13 +36,6 @@ public class ClassShape extends MyShape{
 	    
 	    // draw string
 	    g.setFont(new Font("Arial", Font.BOLD, 15));
-	    g.drawString(name, getX()+getWidth()/4, getY()+getHeight()/7);
-	}
-	
-	@Override
-	public void setName(String name) {
-		if(name == null || name.isEmpty())
-			name = "Class";
-		this.name = name;
+	    g.drawString(getName(), getX()+getWidth()/4, getY()+getHeight()/7);
 	}
 }

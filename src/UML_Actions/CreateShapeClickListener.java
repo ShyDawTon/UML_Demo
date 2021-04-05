@@ -8,6 +8,12 @@ import javax.swing.JOptionPane;
 import UML_Layout.DrawPanel;
 import UML_Shape.*;
 
+/**
+ * 創建形狀的事件監聽
+ * @author shyton
+ *
+ */
+
 public class CreateShapeClickListener extends MouseAdapter {
 	private DrawPanel panel;
 	private ShapeType st;
@@ -20,7 +26,10 @@ public class CreateShapeClickListener extends MouseAdapter {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		// input shape name
 		String name = JOptionPane.showInputDialog("enter Name");
+		
+		// check shape type, then create shape
 		switch(st) {
 			case CLASS:
 				panel.addShape(new ClassShape(e.getX(), e.getY(), 100, 150, 5, name)); break;

@@ -3,6 +3,12 @@ package UML_Manager;
 import UML_Buttons.MyButton;
 import UML_Layout.*;
 
+/**
+ * Store all panel
+ * @author shyton
+ *
+ */
+
 public class FrameManager {
 	private static MainFrame _mainFrame = null;
 	

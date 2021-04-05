@@ -3,7 +3,10 @@ package UML_Line;
 import UML_Shape.MyShape;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.geom.Line2D;
+
 import javax.swing.JComponent;
 
 public abstract class MyLine extends JComponent{
@@ -27,6 +30,7 @@ public abstract class MyLine extends JComponent{
 	public void draw(Graphics g) {
 		g.setColor(color);
 		g.drawLine(p1.x, p1.y, p2.x, p2.y);
+		drawArrow(g);
 	}
 	
 	public Point getP1() {

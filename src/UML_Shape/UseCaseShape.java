@@ -26,13 +26,6 @@ public class UseCaseShape extends MyShape {
 		// draw string
 		g.setColor(Color.black);
 		g.setFont(new Font("Arial", Font.BOLD, 15));
-		g.drawString(name, getX()+getWidth()/4, getY()+getHeight()/2);
-	}
-	
-	@Override
-	public void setName(String name) {
-		if(name == null || name.isEmpty())
-			name = "UseCase";
-		this.name = name;
+		g.drawString(getName(), getX()+getWidth()/4, getY()+getHeight()/2);
 	}
 }

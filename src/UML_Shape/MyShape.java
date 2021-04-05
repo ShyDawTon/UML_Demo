@@ -13,7 +13,6 @@ import java.awt.geom.*;
 
 public abstract class MyShape extends JComponent{
 	protected int inset;
-	protected String name;
 	protected Point north = new Point();
 	protected Point east = new Point();
 	protected Point south = new Point();
@@ -24,7 +23,7 @@ public abstract class MyShape extends JComponent{
 	public MyShape() {
 		this.setBounds(0, 0, 0, 0);
 		this.inset = 0;
-		setName("");
+		super.setName("");
 		positions.add(north);
 		positions.add(east);
 		positions.add(south);
@@ -36,7 +35,7 @@ public abstract class MyShape extends JComponent{
 		super();
 		this.setBounds(x, y, width, height);
 		this.inset = inset;
-		setName(name);
+		this.setName(name);
 		positions.add(north);
 		positions.add(east);
 		positions.add(south);
@@ -52,14 +51,11 @@ public abstract class MyShape extends JComponent{
 		this.inset = inset;
 	}
 
-	public String getName() {
-		return name;
-	}
-
+	@Override
 	public void setName(String name) {
 		if(name == null || name.isEmpty())
-			name = "Shape";
-		this.name = name;
+			name = "";
+		super.setName(name);
 	}
 
 	public void setSelected(boolean active) {

@@ -20,6 +20,12 @@ import UML_Line.LineArrowType;
 import UML_Shape.MyShape;
 import UML_Shape.ShapeType;
 
+/**
+ * Control Application event
+ * @author shyton
+ *
+ */
+
 public class EventManager {
 	public static void setDrawPanelListener(ButtonsEvent event) {
 		DrawPanel drawPanel = FrameManager.getDrawPanel();
