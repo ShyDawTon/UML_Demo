@@ -49,7 +49,7 @@ public class DrawPanel extends JLayeredPane{
 		this.remove(shape);
 		
 		// reset all component z order
-		for(int i=1; i<this.getComponents().length; i++)
+		for(int i=0; i<this.getComponents().length; i++)
 			this.setComponentZOrder(this.getComponents()[i], Integer.valueOf(i));
 		
 		repaint();
