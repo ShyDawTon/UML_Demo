@@ -26,6 +26,10 @@ public class RenameActionListener implements ActionListener{
 		// input component name
 		String name = JOptionPane.showInputDialog("Enter Name");
 		
+		// if cancel, then class name still not change
+		if(name == null)
+			return;
+		
 		// find select name and rename them
 		for(MyShape shape : drawPanel.getShapes())
 			if(shape.getSelected())
