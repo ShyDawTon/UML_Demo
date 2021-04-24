@@ -25,7 +25,7 @@ public class DrawPanel extends JLayeredPane{
 	 */
 	public void addShape(MyShape shape) {
 		shapes.add(shape);
-		this.add(shape, Integer.valueOf(shapes.size()));
+		this.add(shape, Integer.valueOf(shapes.size()-1));
 		repaint();
 	}
 	
@@ -46,12 +46,14 @@ public class DrawPanel extends JLayeredPane{
 	public void removeShape(MyShape shape) {
 		// remove component
 		shapes.remove(shape);
-		this.remove(shape);
 		
-		// reset all component z order
-		for(int i=0; i<this.getComponents().length; i++)
-			this.setComponentZOrder(this.getComponents()[i], Integer.valueOf(i));
+		// remove all component in JLayerPanel, to reset z-order
+		this.removeAll();
 		
+		// reset all component z-order
+		for(int i=0; i<shapes.size(); i++)
+			this.add(shapes.get(i), Integer.valueOf(i));
+
 		repaint();
 	}
 	

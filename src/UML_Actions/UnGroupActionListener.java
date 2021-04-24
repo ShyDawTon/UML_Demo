@@ -42,5 +42,7 @@ public class UnGroupActionListener implements ActionListener {
 		// remove draw panel's shape
 		for(MyShape shape : removeGroupContainer)
 			drawPanel.removeShape(shape);
+		
+		removeGroupContainer.clear();
 	}
 }
