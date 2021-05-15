@@ -49,8 +49,7 @@ public class EventManager {
 			addAllMouseEvent(drawPanel, new DrawLineListener(drawPanel, LineArrowType.LINE_ARROW_TYPE_COMPOSITIONLINE));
 			break;
 		case GENERALIZATION_LINE:
-			addAllMouseEvent(drawPanel,
-					new DrawLineListener(drawPanel, LineArrowType.LINE_ARROW_TYPE_GENERALIZATIONLINE));
+			addAllMouseEvent(drawPanel, new DrawLineListener(drawPanel, LineArrowType.LINE_ARROW_TYPE_GENERALIZATIONLINE));
 			break;
 		case CLASS:
 			addAllMouseEvent(drawPanel, new CreateShapeClickListener(drawPanel, ShapeType.CLASS));

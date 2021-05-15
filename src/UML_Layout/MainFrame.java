@@ -10,6 +10,7 @@ public class MainFrame extends JFrame{
 	private JSplitPane splitPane;
 	private ButtonsPanel buttonsPanel;
 	private DrawPanel drawPanel;
+	private MenuBar menubar;
 	
 	public MainFrame() {
 		// create and set up the window
@@ -21,10 +22,11 @@ public class MainFrame extends JFrame{
 		// set content panel
 		buttonsPanel = new ButtonsPanel();
 		drawPanel = new DrawPanel();
+		menubar = new MenuBar(drawPanel);
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, buttonsPanel, drawPanel);
 		splitPane.setResizeWeight(0.01f);
 		
-		this.setJMenuBar(new MenuBar(drawPanel));
+		this.setJMenuBar(menubar);
 		this.getContentPane().add(splitPane);
 
 		// set frame visible
