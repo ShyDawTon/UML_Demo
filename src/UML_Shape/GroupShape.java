@@ -51,7 +51,7 @@ public class GroupShape extends MyShape {
 	}
 	
 	@Override
-	public Point getNearestPosition(Point p) {
+	public Port getNearestPosition(Point p) {
 		return null; // stop draw line
 	}
 	

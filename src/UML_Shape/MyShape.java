@@ -13,35 +13,27 @@ import java.awt.geom.*;
 
 public abstract class MyShape extends JComponent{
 	protected int inset;
-	protected Point north = new Point();
-	protected Point east = new Point();
-	protected Point south = new Point();
-	protected Point west = new Point();
-	protected List<Point> positions = new ArrayList<Point>();
+	protected Port[] positions;
 	protected boolean selected;
 	protected int shapeCount;
 
 	public MyShape() {
-		this.setBounds(0, 0, 0, 0);
+		super();
+		initPort();
 		this.inset = 0;
+		this.setBounds(0, 0, 0, 0);
+		
 		super.setName("");
-		positions.add(north);
-		positions.add(east);
-		positions.add(south);
-		positions.add(west);
 		selected = false;
 		shapeCount = 0;
 	}
 	
 	public MyShape(int x, int y, int width, int height, int inset, String name) {
 		super();
-		this.setBounds(x, y, width, height);
+		initPort();
 		this.inset = inset;
+		this.setBounds(x, y, width, height);
 		this.setName(name);
-		positions.add(north);
-		positions.add(east);
-		positions.add(south);
-		positions.add(west);
 		selected = false;
 	}
 	
@@ -69,10 +61,10 @@ public abstract class MyShape extends JComponent{
 	}
 	
 	public void relocatePosition() {
-		north.setLocation(getX() + getWidth()/2, getY());
-		east.setLocation(getX() + getWidth(), getY() + getHeight()/2);
-		south.setLocation(getX() + getWidth()/2, getY() + getHeight());
-		west.setLocation(getX(), getY()+ getHeight()/2);
+		positions[0].setLocation(getX() + getWidth()/2 - getInset(), getY() - getInset());
+		positions[1].setLocation(getX() + getWidth() - getInset(), getY() + getHeight()/2 - getInset());
+		positions[2].setLocation(getX() + getWidth()/2 - getInset(), getY() + getHeight() - getInset());
+		positions[3].setLocation(getX() - getInset(), getY()+ getHeight()/2 - getInset());
 	}
 	
 	/**
@@ -80,8 +72,8 @@ public abstract class MyShape extends JComponent{
 	 * @param g the panel graphics must draw
 	 */
 	public void draw(Graphics g) {
-		drawPosition(g);
 		drawCustomShape(g);
+		drawPosition(g);
 	}
 	
 	public abstract void drawCustomShape(Graphics g);
@@ -89,13 +81,9 @@ public abstract class MyShape extends JComponent{
 	public void drawPosition(Graphics g) {
 		if(!selected)
 			return;
-		Graphics2D g2d = (Graphics2D)g;
-		g2d.setColor(Color.black);
-		for(Point position: positions) {
-			Ellipse2D.Double circle = new Ellipse2D.Double(position.x-getInset(), position.y-getInset(), 10, 10);
-			g2d.draw(circle);
-			g2d.fill(circle);
-		}		
+		
+		for(Port position: positions)
+			position.draw(g);	
 	}
 	
 	/**
@@ -103,15 +91,14 @@ public abstract class MyShape extends JComponent{
 	 * @param p
 	 * @return
 	 */
-	public Point getNearestPosition(Point p) {
-		Point nearest = null;
+	public Port getNearestPosition(Point p) {
+		Port nearest = null;
 		
 		double shortestDistance = Double.MAX_VALUE;
-		List<Point> positions = new ArrayList<Point>(Arrays.asList(north,east,south,west));
-		for(Point shapePosition : positions) {
-			double distance = getDistance(p, shapePosition);
+		for(Port position : positions) {
+			double distance = getDistance(p, position.getLocation());
 			if(distance < shortestDistance) {
-				nearest = shapePosition;
+				nearest = position;
 				shortestDistance = distance;
 			}
 		}
@@ -144,4 +131,10 @@ public abstract class MyShape extends JComponent{
 	public void removeShape(MyShape shape) {}
 	
 	public void removeGroup() {}
+	
+	private void initPort() {
+		positions = new Port[4];
+		for(int i=0; i<positions.length; i++)
+			positions[i] = new Port();
+	}
 }

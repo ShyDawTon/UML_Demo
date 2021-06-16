@@ -10,6 +10,7 @@ import UML_Layout.DrawPanel;
 import UML_Line.LineArrowType;
 import UML_Line.*;
 import UML_Shape.MyShape;
+import UML_Shape.Port;
 
 /**
  * draw line listener
@@ -18,7 +19,7 @@ import UML_Shape.MyShape;
  */
 
 public class DrawLineListener extends MouseAdapter {
-	private Point p1, p2;
+	private Port p1, p2;
 	private MyShape source, dest;
 	private DrawPanel drawPanel;
 	private LineArrowType lineArrowType;
@@ -79,6 +80,7 @@ public class DrawLineListener extends MouseAdapter {
 	    		return curr;
 	    	}		
 		}
+		
 		return null;
 	}
 }

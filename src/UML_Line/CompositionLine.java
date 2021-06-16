@@ -7,16 +7,17 @@ import java.awt.Point;
 import java.awt.geom.Line2D;
 
 import UML_Line.MyLine;
+import UML_Shape.Port;
 
 public class CompositionLine extends MyLine {
-	public CompositionLine(Point p1, Point p2, Color color) {
+	public CompositionLine(Port p1, Port p2, Color color) {
 		super(p1,p2,color);
 	}
 	
 	@Override
 	public void drawArrow(Graphics g) {
-		Point tip = getP2();
-		Point tail = getP1();
+		Point tip = p2.getLocation();
+		Point tail = p1.getLocation();
         double phi = Math.toRadians(40);
         int barb = 20;
 		Graphics2D g2 = (Graphics2D)g;

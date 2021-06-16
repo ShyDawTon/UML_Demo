@@ -6,15 +6,17 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.geom.Line2D;
 
+import UML_Shape.Port;
+
 public class AssociationLine extends MyLine {
-	public AssociationLine(Point p1, Point p2, Color color) {
-		super(p1,p2,color);
+	public AssociationLine(Port p1, Port p2, Color color) {
+		super(p1, p2, color);
 	}
 	
 	@Override
 	public void drawArrow(Graphics g) {
-		Point tip = getP2();
-		Point tail = getP1();
+		Point tip = p2.getLocation();
+		Point tail = p1.getLocation();
         double phi = Math.toRadians(40);
         int barb = 20;
 		Graphics2D g2 = (Graphics2D)g;
