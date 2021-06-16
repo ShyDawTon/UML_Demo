@@ -50,7 +50,10 @@ public class GroupActionListener implements ActionListener{
 		}
 		
 		// group create
-		groupShape = new GroupShape(selectedShapeContainer);
+		groupShape = new GroupShape();
+		for(MyShape shape : selectedShapeContainer) 
+			groupShape.addShape(shape);
+		
 		EventManager.addAllMouseEvent(groupShape, new DragAndDropListener(drawPanel));
 		
 		// add group shape to draw panel

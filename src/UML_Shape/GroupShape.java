@@ -12,10 +12,9 @@ import java.lang.Math;
 public class GroupShape extends MyShape {
 	private List<MyShape> shapeContainer;
 	
-	public GroupShape(List<MyShape> shapes) {
+	public GroupShape() {
+		super();
 		shapeContainer = new ArrayList<MyShape>();
-		addShape(shapes);
-		calculateBounds();
 	}
 
 	@Override
@@ -66,17 +65,11 @@ public class GroupShape extends MyShape {
 	public List<MyShape> getShapes(){
 		return shapeContainer;
 	}
-	
+
+	@Override
 	public void addShape(MyShape shape) {
 		shapeContainer.add(shape);
-	}
-	
-	public void addShape(List<MyShape> shapes) {
-		shapeContainer.addAll(shapes);
-	}
-	
-	public void removeShape(MyShape shape) {
-		shapeContainer.remove(shape);
+		calculateBounds();
 	}
 	
 	@Override
@@ -98,5 +91,15 @@ public class GroupShape extends MyShape {
 		}
 		
 		this.setBounds(minx, miny, maxx-minx, maxy-miny);
+	}
+	
+	@Override
+	public int getShapeCount() {
+		return this.shapeContainer.size();
+	}
+	
+	@Override
+	public void removeGroup() {
+		
 	}
 }

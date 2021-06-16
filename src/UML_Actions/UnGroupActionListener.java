@@ -30,14 +30,12 @@ public class UnGroupActionListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// find need to remove component
 		for(MyShape shape : drawPanel.getShapes())
-			if(shape instanceof GroupShape && shape.getSelected()) {
+			if(shape.getShapeCount() > 0 && shape.getSelected())
 				removeGroupContainer.add(shape);
-			}
 		
 		// if no remove group, show message and return
-		if(removeGroupContainer.size() == 0) {
+		if(removeGroupContainer.size() == 0)
 			JOptionPane.showMessageDialog(drawPanel,  "No Choose Group",  "WARNING", JOptionPane.WARNING_MESSAGE);
-		}
 		
 		// remove draw panel's shape
 		for(MyShape shape : removeGroupContainer)

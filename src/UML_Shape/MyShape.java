@@ -19,7 +19,8 @@ public abstract class MyShape extends JComponent{
 	protected Point west = new Point();
 	protected List<Point> positions = new ArrayList<Point>();
 	protected boolean selected;
-	
+	protected int shapeCount;
+
 	public MyShape() {
 		this.setBounds(0, 0, 0, 0);
 		this.inset = 0;
@@ -29,6 +30,7 @@ public abstract class MyShape extends JComponent{
 		positions.add(south);
 		positions.add(west);
 		selected = false;
+		shapeCount = 0;
 	}
 	
 	public MyShape(int x, int y, int width, int height, int inset, String name) {
@@ -132,4 +134,14 @@ public abstract class MyShape extends JComponent{
 		super.setLocation(x, y);
 		relocatePosition();
 	}
+	
+	public int getShapeCount() {
+		return shapeCount;
+	}
+
+	public void addShape(MyShape shape) {}
+	
+	public void removeShape(MyShape shape) {}
+	
+	public void removeGroup() {}
 }

@@ -16,6 +16,8 @@ public class FrameManager {
 	
 	private static DrawPanel _drawPanel = null;
 	
+	private FrameManager() {}
+	
 	/**
 	 * get MainFrame object
 	 * @return

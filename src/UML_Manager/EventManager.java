@@ -28,6 +28,9 @@ import UML_Shape.ShapeType;
  */
 
 public class EventManager {
+	
+	private EventManager() {}
+	
 	public static void setDrawPanelListener(ButtonsEvent event) {
 		DrawPanel drawPanel = FrameManager.getDrawPanel();
 
